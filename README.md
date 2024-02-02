@@ -16,6 +16,8 @@ Joystick Control: Interprets joystick inputs for ROV movement, using mathematica
 
 Serial Communication: Sends commands to the ROV's Arduino controller, allowing for real-time control of the vehicle.
 
+Live video capture: Two onboard cameras, one main and one auxillary camera capture live video of ROV's underwater environment to enable Pilot to navigate.
+
 Image Capture: Utilizes Pygame's camera module for capturing images, which can be used for navigation or documentation. (Needs to be configured)
 
 Future Plans:
