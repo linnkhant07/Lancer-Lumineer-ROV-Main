@@ -1,6 +1,6 @@
-# Lancer_Lumineer_ROV_Main
+# Lancer Lumineers MATE ROV Competition Pioneer/Explorer 2023-24
 
-# ROV Control System
+# ROV Hydra Control System 
 
 ## Overview
 This repository contains the code for a Remotely Operated Vehicle (ROV) control system, utilizing Pygame for the graphical user interface (GUI) and serial communication for hardware interaction. The project is designed to control an ROV through a user-friendly interface, allowing for joystick-based navigation, real-time video feedback, and customizable control widgets.
@@ -8,7 +8,7 @@ This repository contains the code for a Remotely Operated Vehicle (ROV) control 
 # Files Description
 ## ROV_final.py
 The main script for the ROV control system. It initializes the GUI, processes user inputs, and communicates with the ROV hardware via serial connection.
----
+
 # Key Features:
 Pygame GUI: A custom GUI setup that includes a main view area and a sidebar for additional controls and information.
 
@@ -18,13 +18,22 @@ Serial Communication: Sends commands to the ROV's Arduino controller, allowing f
 
 Image Capture: Utilizes Pygame's camera module for capturing images, which can be used for navigation or documentation. (Needs to be configured)
 
+Future Plans:
+
+3D Photogrammetry: With hardware and software upgrades, the ROV can perform 3D photogrammetry underwater. 
+
+Autonomous movement: With hardware and software upgrades, the ROV can perform autopathing or predefined pathing underwater.
+
+---
+
 ## widgets2.py
 Defines custom widget classes for the Pygame GUI, enhancing the interactivity and functionality of the ROV control system's interface.
----
+
 # Toggleable Widget:
 A key component for the GUI, allowing users to toggle settings or controls on and off with visual feedback.
 # Getting Started
 To run the ROV control system, ensure you have Python installed along with the Pygame library and the PySerial module for serial communication. Clone this repository, and run ROV_final.py to start the control interface.
+
 ---
 # Prerequisites
 Python 3.x
