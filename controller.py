@@ -8,7 +8,7 @@ class Controller:
         self.gui = gui
         
 
-    def handle_input(self,cam1, min_value, max_value, joystick, onStatus, trigger_button):
+    def handle_input(self,cam1, min_value, max_value, joystick, trigger_button):
         # Get input from joystick and keyboard
         # Get input from joystick and keyboard
         pygame.event.pump()
@@ -21,7 +21,7 @@ class Controller:
                 quit()
             if event.type == pygame.JOYBUTTONDOWN:
                 if event.button == 0:  # Button A; Button ID: 0 used for toggling max thruster status On/Off
-                    onStatus.toggle()
+                    self.onStatus.toggle()
 
             if event.type == pygame.JOYBUTTONDOWN:  # Using JoyButtonDown method (trigger button is pressed or x/y buttons are pressed)
                 if event.button == 4:  # Left Button on Controller
@@ -85,7 +85,7 @@ class Controller:
             z = 0
         # When the status is toggled to "On" by pressing Button A on the controller:
         # Limits thrust for SURGE direction (forward/backward).
-        if onStatus.state:
+        if self.onStatus.state:
             x = x * 1.414  # gives value of 1 for full thrust forward and backwards
             y = y * 1.414  # gives value of 1 for full thrust forward and backwards
 

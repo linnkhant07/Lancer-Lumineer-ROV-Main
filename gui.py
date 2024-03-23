@@ -91,7 +91,7 @@ class GUI:
         self.screen.blit(self.RG_Joy_Up, (650, 600))
         self.screen.blit(self.RG_Joy_Down, (650, 620))
 
-        pygame.display.flip()  # update screen for all rectangular images
+       
 
     
 
