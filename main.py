@@ -6,22 +6,13 @@ import math  # needed for joystick
 import widgets.widgets2 as widgets # needed to make widgets function properly
 import serial  # needed to talk with Arduino
 import os  # for creating the picture folder
+import gui as gui
 
-# GUI window setup
-sideBarWidth = 300
+
 pygame.init()  # Initializes the pygame modules
-size = width, height = 900 + sideBarWidth, 800  # size of GUI
-pygame.display.set_caption('ROV Control')
-screen = pygame.display.set_mode(size)
-screen.fill((16, 43, 87))
-
-# Define the name of the output folder
-folder_name = "ROV_3D"
-
-# Create the folder if it doesn't exist
-if not os.path.exists(folder_name):
-    os.makedirs(folder_name)
-
+screen = gui.main_setup_gui()
+sideBarWidth = 300
+#-------------------------------------------------------
 # camera setup
 camera_width = 640
 camera_height = 400
@@ -39,6 +30,7 @@ cameraSurface.fill((0, 0, 0, transparency))
 # start the cameras (turn on cameras)
 cam1.start()
 # cam2.start() # Disabled to avoid sersvo claw jitter
+#-------------------------------------------------------
 
 # setup displays in GUI
 guiScreen = pygame.Surface((80 + sideBarWidth, 800), pygame.SRCALPHA)
@@ -79,8 +71,8 @@ RG_Joy_Down = font.render("Right Joy Down: Descend", True, (255, 255, 255))
 # Scale the image
 # scaledImage = pygame.transform.scale(image, (240, 200)) # Can comment this line of code out if you do not have a logo file within same directory
 
-# open serial com to Arduino
-ser = serial.Serial(port='COM6', baudrate=9600, timeout=.1, dsrdtr=True) # Can comment this out if Arduino board is not connected to USB serial port.
+# open serial com to Arduino !!!!!!!!!!!!
+#ser = serial.Serial(port='COM6', baudrate=9600, timeout=.1, dsrdtr=True) # Can comment this out if Arduino board is not connected to USB serial port.
 # dsrdtr=True stops Arduino Mega from auto resetting
 
 trigger_button = [False, False]  # Initialize False Boolean values for Left Button and Right Button
@@ -103,7 +95,8 @@ else:
 # Set the variable to control image capture
 capture_count = 0
 # Main Event Loop
-while True:
+#while the joystick exists
+while pygame.joystick.get_count() == 1:
     # Get input from joystick and keyboard
     pygame.event.pump()
     key = pygame.key.get_pressed()
