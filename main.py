@@ -3,7 +3,7 @@ import json
 import time
 import pygame
 import math  # needed for joystick
-import widgets2 as widgets # needed to make widgets function properly
+import widgets.widgets2 as widgets # needed to make widgets function properly
 import serial  # needed to talk with Arduino
 import os  # for creating the picture folder
 
