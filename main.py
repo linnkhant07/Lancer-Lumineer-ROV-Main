@@ -16,8 +16,6 @@ def main():
     gui = GUI()
     screen = gui.screen
     controller = Controller(gui)
-
-
     sideBarWidth = 300
 
     #-------------------------------------------------------
@@ -51,7 +49,7 @@ def main():
     # scaledImage = pygame.transform.scale(image, (240, 200)) # Can comment this line of code out if you do not have a logo file within same directory
 
     # open serial com to Arduino !!!!!!!!!!!!
-    #ser = serial.Serial(port='COM6', baudrate=9600, timeout=.1, dsrdtr=True) # Can comment this out if Arduino board is not connected to USB serial port.
+    ser = serial.Serial(port='/dev/cu.usbmodem14201', baudrate=9600, timeout=.1, dsrdtr=True) # Can comment this out if Arduino board is not connected to USB serial port.
     # dsrdtr=True stops Arduino Mega from auto resetting
 
     trigger_button = [False, False]  # Initialize False Boolean values for Left Button and Right Button
@@ -87,11 +85,11 @@ def main():
             data = ser.readline().decode("utf-8")  # decode into byte from Arduino
             dict_json = json.loads(data)  # data from arduino in dictionary form
 
-            temp_display.value = dict_json['volt']  # assign temp to dispaly
-            th_up_display.value = dict_json['sig_up_1']  # vertical thruster value from Arduino
-            th_left_display.value = dict_json['sig_lf']  # vertical thruster value from Arduino
-            th_right_display.value = dict_json['sig_rt']  # vertical thruster value from Arduino
-            claw_display.value = dict_json['claw']  # claw value from Arduino
+            gui.temp_display.value = dict_json['volt']  # assign temp to dispaly
+            gui.th_up_display.value = dict_json['sig_up_1']  # vertical thruster value from Arduino
+            gui.th_left_display.value = dict_json['sig_lf']  # vertical thruster value from Arduino
+            gui.th_right_display.value = dict_json['sig_rt']  # vertical thruster value from Arduino
+            gui.claw_display.value = dict_json['claw']  # claw value from Arduino
 
             ser.flush()
 
