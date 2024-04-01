@@ -75,7 +75,7 @@ def main():
     #while the joystick exists
     while pygame.joystick.get_count() == 1:
         
-        commands = controller.handle_input(cam1, min_value, max_value, joystick, gui.onStatus, trigger_button, clawValue, gui.mLeftSlider, gui.mRightSlider, gui.zSlider)
+        commands = controller.handle_input(cam1, min_value, max_value, joystick, trigger_button)
 
         MESSAGE = json.dumps(commands)  # puts python dictionary in Json format
         ser.write(bytes(MESSAGE, 'utf-8'))  # byte format sent to arduino
